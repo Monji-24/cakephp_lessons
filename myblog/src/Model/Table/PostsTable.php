@@ -9,6 +9,17 @@
    public function initialize(array $config)
   {
     $this->addBehavior('Timestamp');
+    $this->hasMany('Comments',[
+        'dependent'=> true
+    ]);
+    $this->belongsTo('Categories');
+    $this->belongsToMany('Tags',[
+        'joinTable'=> 'posts_tags']);
+
+    $this->hasMany('Items',[
+        'dependent'=> true
+    ]);
+
   }
 
   public function validationDefault(Validator $validator)
@@ -24,6 +35,9 @@
          'message' => 'body length must be 10+'
        ]
      ]);
+
+
+
     return $validator;
   }
  }

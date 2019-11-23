@@ -1,1 +1,1 @@
-<header>My Blog</header>
+<header>My blog</header>
